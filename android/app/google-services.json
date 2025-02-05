@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "500030851669",
+    "project_id": "my-little-panda",
+    "storage_bucket": "my-little-panda.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500030851669:android:69a9d76d6e71590607a2dc",
+        "android_client_info": {
+          "package_name": "com.example.little_panda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtQIyE8Nqgf_Vsjl5SoA__kejKwXG3Vg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500030851669:android:844cfe7314d9dc5007a2dc",
+        "android_client_info": {
+          "package_name": "dev.flutterwing.framework"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtQIyE8Nqgf_Vsjl5SoA__kejKwXG3Vg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
