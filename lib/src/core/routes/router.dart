@@ -8,22 +8,13 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'main_menu');
 
   static final GoRouter router = GoRouter(
-    errorPageBuilder: (context, state) =>
-        MaterialPage(key: state.pageKey, child: const PageNotFoundScreen()),
+    errorPageBuilder: (context, state) => MaterialPage(
+      key: state.pageKey,
+      child: const PageNotFoundScreen(),
+    ),
     navigatorKey: _rootNavigatorKey,
     initialLocation: RoutesName.initial,
     routes: [
-      // GoRoute(
-      //   path: ErrorBoundaryTestPage.routeName,
-      //   name: ErrorBoundaryTestPage.routeName,
-      //   pageBuilder: (_, state) {
-      //     return _buildTransition(
-      //       child: const ErrorBoundaryTestPage(),
-      //       state: state,
-      //     );
-      //   },
-      // ),
-
       GoRoute(
         path: RoutesName.pageNotFound,
         name: RoutesName.pageNotFound,
@@ -34,7 +25,29 @@ class AppRouter {
           );
         },
       ),
-
+      GoRoute(
+        path: RoutesName.initial,
+        name: RoutesName.initial,
+        pageBuilder: (_, state) {
+          return _buildTransition(
+            child: const InitialPage(),
+            state: state,
+          );
+        },
+      ),
+      GoRoute(
+        path: RoutesName.login,
+        name: RoutesName.login,
+        pageBuilder: (_, state) {
+          return _buildTransition(
+            child: BlocProvider<AuthCubit>(
+              create: (_) => sl<AuthCubit>(),
+              child: const LoginPage(),
+            ),
+            state: state,
+          );
+        },
+      ),
       ShellRoute(
         navigatorKey: mainMenuNavigatorKey,
         builder: (context, state, child) {
@@ -59,4 +72,13 @@ class AppRouter {
       reverseTransitionDuration: kThemeAnimationDuration,
     );
   }
+}
+
+Future<String> intialRoute() async {
+  final value =
+      await const FlutterSecureStorage().read(key: AppConstants.secureStorageKey);
+  if (value == null) {
+    return RoutesName.login;
+  }
+  return RoutesName.dashboard;
 }

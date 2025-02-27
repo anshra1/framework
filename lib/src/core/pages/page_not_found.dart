@@ -47,7 +47,7 @@ class PageNotFoundScreen extends StatelessWidget {
 
             // Home Button
             ElevatedButton(
-              onPressed: () => context.pushReplacementNamed(RoutesName.dashboard),
+              onPressed: () => context.pushReplacementNamed(RoutesName.initial),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),

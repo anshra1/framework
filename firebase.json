@@ -3,20 +3,20 @@
     "platforms": {
       "android": {
         "default": {
-          "projectId": "my-little-panda",
+          "projectId": "my-little-panda", 
           "appId": "1:500030851669:android:844cfe7314d9dc5007a2dc",
           "fileOutput": "android/app/google-services.json"
         }
       },
       "dart": {
         "lib/firebase_options.dart": {
-          "projectId": "my-little-panda",
+          "projectId": "my-little-panda", 
           "configurations": {
-            "android": "1:500030851669:android:844cfe7314d9dc5007a2dc",
-            "ios": "1:500030851669:ios:24d77ba9e46fb61b07a2dc",
-            "macos": "1:500030851669:ios:24d77ba9e46fb61b07a2dc",
-            "web": "1:500030851669:web:344bb5f87750476c07a2dc",
-            "windows": "1:500030851669:web:5baf7f0bb31dc2ba07a2dc"
+            "android": "1:500030851669:android:844cfe7314d9dc5007a2dc", 
+            "ios": "1:500030851669:ios:24d77ba9e46fb61b07a2dc", 
+            "macos": "1:500030851669:ios:24d77ba9e46fb61b07a2dc", 
+            "web": "1:500030851669:web:344bb5f87750476c07a2dc", 
+            "windows": "1:500030851669:web:5baf7f0bb31dc2ba07a2dc" 
           }
         }
       }
@@ -44,20 +44,6 @@
       "predeploy": [
         "npm --prefix \"$RESOURCE_DIR\" run lint",
         "npm --prefix \"$RESOURCE_DIR\" run build"
-      ]
-    },
-    {
-      "source": "google-sign",
-      "codebase": "google-sign",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint"
       ]
     }
   ]

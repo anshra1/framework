@@ -1,7 +1,6 @@
 import 'package:baby_package/baby_package.dart';
 import 'package:flutter/material.dart';
 import 'package:framework/src/core/design_system/colors.dart';
-import 'package:framework/src/core/design_system/typography_service.dart';
 
 class LightTheme {
   static ThemeData get theme => ThemeData(
@@ -28,39 +27,39 @@ class LightTheme {
         ),
         textTheme: TextTheme(
           displayLarge:
-              TypographyService().displayLarge.copyWith(color: DSColors.lightTextPrimary),
-          displayMedium: TypographyService()
+              AppFonts.displayLarge.copyWith(color: DSColors.lightTextPrimary),
+          displayMedium: AppFonts
               .displayMedium
               .copyWith(color: DSColors.lightTextPrimary),
           displaySmall:
-              TypographyService().displaySmall.copyWith(color: DSColors.lightTextPrimary),
-          headlineLarge: TypographyService()
+              AppFonts.displaySmall.copyWith(color: DSColors.lightTextPrimary),
+          headlineLarge: AppFonts
               .headlineLarge
               .copyWith(color: DSColors.lightTextPrimary),
-          headlineMedium: TypographyService()
+          headlineMedium: AppFonts
               .headlineMedium
               .copyWith(color: DSColors.lightTextPrimary),
-          headlineSmall: TypographyService()
+          headlineSmall: AppFonts
               .headlineSmall
               .copyWith(color: DSColors.lightTextPrimary),
           titleLarge:
-              TypographyService().titleLarge.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.titleLarge.copyWith(color: DSColors.lightTextPrimary),
           titleMedium:
-              TypographyService().titleMedium.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.titleMedium.copyWith(color: DSColors.lightTextPrimary),
           titleSmall:
-              TypographyService().titleSmall.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.titleSmall.copyWith(color: DSColors.lightTextPrimary),
           labelLarge:
-              TypographyService().labelLarge.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.labelLarge.copyWith(color: DSColors.lightTextPrimary),
           labelMedium:
-              TypographyService().labelMedium.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.labelMedium.copyWith(color: DSColors.lightTextPrimary),
           labelSmall:
-              TypographyService().labelSmall.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.labelSmall.copyWith(color: DSColors.lightTextPrimary),
           bodyLarge:
-              TypographyService().bodyLarge.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.bodyLarge.copyWith(color: DSColors.lightTextPrimary),
           bodyMedium:
-              TypographyService().bodyMedium.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.bodyMedium.copyWith(color: DSColors.lightTextPrimary),
           bodySmall:
-              TypographyService().bodySmall.copyWith(color: DSColors.lightTextPrimary),
+              AppFonts.bodySmall.copyWith(color: DSColors.lightTextPrimary),
         ),
       );
 
@@ -161,7 +160,7 @@ class LightTheme {
 
   // Tooltip Theme
   static final _tooltipTheme = TooltipThemeData(
-    textStyle: TypographyService().bodyMedium.copyWith(color: DSColors.lightTextInverse),
+    textStyle: AppFonts.bodyMedium.copyWith(color: DSColors.lightTextInverse),
     decoration: BoxDecoration(
       color: DSColors.lightOverlay,
       borderRadius: BorderRadius.circular(AppSize.radiusMD8),

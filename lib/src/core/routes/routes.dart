@@ -2,13 +2,18 @@ part of 'import.dart';
 
 class AppRoutes {
   static final mainMenuRoutes = <RouteBase>[
+    
     GoRoute(
       path: RoutesName.dashboard,
       name: RoutesName.dashboard,
       pageBuilder: (_, state) {
         return _buildTransition(
-          child: const DashboardPage(),
+          child: BlocProvider<AuthCubit>(
+            create: (_) => sl<AuthCubit>(),
+            child: const DashboardPage(),
+          ),
           state: state,
+        
         );
       },
     ),

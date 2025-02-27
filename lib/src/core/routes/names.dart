@@ -1,7 +1,7 @@
 class RoutesName {
+  static const initial = '/intial';
+  static const login = '/login';
   static const dashboard = '/dashboard';
-  static const initial = dashboard;
-
   // fallback pages
   static const pageNotFound = '/page-not-found';
 

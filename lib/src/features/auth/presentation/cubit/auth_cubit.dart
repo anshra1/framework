@@ -1,50 +1,49 @@
-// import 'package:bloc/bloc.dart';
-// import 'package:dartz/dartz.dart';
-// import 'package:equatable/equatable.dart';
-// import 'package:my_flutter_app/src/core/errors/failures.dart';
-// import 'package:my_flutter_app/src/domain/entities/user.dart';
-// import 'package:my_flutter_app/src/domain/usecases/sign_in_with_google.dart';
-// import 'package:my_flutter_app/src/domain/usecases/sign_out.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:framework/src/core/system/logger/debug_logger.dart';
+import 'package:framework/src/features/auth/domain/usecases/usecases.dart';
+import 'package:framework/src/features/auth/presentation/cubit/auth_state.dart'; // Import the states defined above
 
-// part 'authentication_state.dart';
+class AuthCubit extends Cubit<AuthState> {
+  // Constructor
+  AuthCubit({
+    required SignInWithGoogle signInWithGoogle,
 
-// class AuthenticationCubit extends Cubit<AuthenticationState> {
-//   final SignInWithGoogle signInWithGoogle;
-//   final SignOut signOut;
+    required SignOut signOut,
+  })  : _signInWithGoogle = signInWithGoogle,
+        
+        _signOut = signOut,
+        super(const AuthInitial()); // Initial state
 
-//   AuthenticationCubit({required this.signInWithGoogle, required this.signOut})
-//       : super(AuthenticationInitial());
+  // Dependencies
+  final SignInWithGoogle _signInWithGoogle;
 
-//   Future<void> signIn() async {
-//     emit(AuthenticationLoading());
-//     final failureOrUser = await signInWithGoogle();
-//     emit(
-//       failureOrUser.fold(
-//         (failure) => AuthenticationFailure(message: _mapFailureToMessage(failure)),
-//         (user) => AuthenticationSuccess(user: user),
-//       ),
-//     );
-//   }
+  final SignOut _signOut;
 
-//   Future<void> logout() async {
-//     emit(AuthenticationLoading());
-//     final failureOrVoid = await signOut();
-//     emit(
-//       failureOrVoid.fold(
-//         (failure) => AuthenticationFailure(message: _mapFailureToMessage(failure)),
-//         (_) => AuthenticationInitial(),
-//       ),
-//     );
-//   }
+  // Method to sign in with Google
+  Future<void> signIn() async {
+    emit(const AuthLoading());
+    final result = await _signInWithGoogle();
 
-//   String _mapFailureToMessage(Failure failure) {
-//     switch (failure.runtimeType) {
-//       case ServerFailure:
-//         return 'Server Failure';
-//       case CacheFailure:
-//         return 'Cache Failure';
-//       default:
-//         return 'Unexpected Error';
-//     }
-//   }
-// }
+    result.fold(
+      (failure) =>
+          emit(FailureState(message: failure.message, severity: failure.severity)),
+      (userData) {
+        DebugLogger.instance.info(userData);
+        return emit(SignInSuccess(userData));
+      },
+    );
+  }
+
+
+  // Method to sign out
+  Future<void> logout() async {
+    emit(const AuthLoading());
+    final result = await _signOut();
+
+    result.fold(
+      (failure) => emit(FailureState(message: '', severity: failure.severity)),
+      (_) => emit(const SignOutSuccess()),
+    );
+  }
+}

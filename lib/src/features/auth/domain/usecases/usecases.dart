@@ -1,22 +1,30 @@
-import 'package:baby_package/baby_package.dart';
-import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:framework/src/features/auth/domain/repositories/repositories.dart';
+import 'package:framework/src/core/typedef/typedef.dart';
+import 'package:framework/src/core/usecases/usecases.dart';
+import 'package:framework/src/features/auth/domain/repositories/auth_repo.dart';
 
-class SignInWithGoogle {
-  SignInWithGoogle({required this.repository});
-  final AuthRepository repository;
+// Use case for signing in with Google
+class SignInWithGoogle extends FutureUseCaseWithoutParams<User?> {
+  const SignInWithGoogle({required this.authRepo});
 
-  Future<Either<Failure, User>> call() async {
-    return repository.signInWithGoogle();
+  final AuthRepo authRepo;
+
+  @override
+  ResultFuture<User?> call() {
+    return authRepo.signInWithGoogle();
   }
 }
 
-class SignOut {
-  SignOut({required this.repository});
-  final AuthRepository repository;
 
-  Future<Either<Failure, void>> call() async {
-    return repository.signOut();
+
+// Use case for signing out
+class SignOut extends FutureUseCaseWithoutParams<bool> {
+  const SignOut({required this.authRepo});
+
+  final AuthRepo authRepo;
+
+  @override
+  ResultFuture<bool> call() {
+    return authRepo.signOut();
   }
 }

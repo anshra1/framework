@@ -1,7 +1,6 @@
 import 'package:baby_package/baby_package.dart';
 import 'package:flutter/material.dart';
 import 'package:framework/src/core/design_system/colors.dart';
-import 'package:framework/src/core/design_system/typography_service.dart';
 
 class DarkTheme {
   static ThemeData get theme => ThemeData(
@@ -27,22 +26,22 @@ class DarkTheme {
           onSurface: DSColors.darkTextPrimary,
         ),
         textTheme: TextTheme(
-          displayLarge: TypographyService().displayLarge.copyWith(color: DSColors.darkTextPrimary),
-          displayMedium: TypographyService().displayMedium.copyWith(color: DSColors.darkTextPrimary),
-          displaySmall: TypographyService().displaySmall.copyWith(color: DSColors.darkTextPrimary),
-          headlineLarge: TypographyService().headlineLarge.copyWith(color: DSColors.darkTextPrimary),
+          displayLarge: AppFonts.displayLarge.copyWith(color: DSColors.darkTextPrimary),
+          displayMedium: AppFonts.displayMedium.copyWith(color: DSColors.darkTextPrimary),
+          displaySmall: AppFonts.displaySmall.copyWith(color: DSColors.darkTextPrimary),
+          headlineLarge: AppFonts.headlineLarge.copyWith(color: DSColors.darkTextPrimary),
           headlineMedium:
-              TypographyService().headlineMedium.copyWith(color: DSColors.darkTextPrimary),
-          headlineSmall: TypographyService().headlineSmall.copyWith(color: DSColors.darkTextPrimary),
-          titleLarge: TypographyService().titleLarge.copyWith(color: DSColors.darkTextPrimary),
-          titleMedium: TypographyService().titleMedium.copyWith(color: DSColors.darkTextPrimary),
-          titleSmall: TypographyService().titleSmall.copyWith(color: DSColors.darkTextPrimary),
-          labelLarge: TypographyService().labelLarge.copyWith(color: DSColors.darkTextPrimary),
-          labelMedium: TypographyService().labelMedium.copyWith(color: DSColors.darkTextPrimary),
-          labelSmall: TypographyService().labelSmall.copyWith(color: DSColors.darkTextPrimary),
-          bodyLarge: TypographyService().bodyLarge.copyWith(color: DSColors.darkTextPrimary),
-          bodyMedium: TypographyService().bodyMedium.copyWith(color: DSColors.darkTextPrimary),
-          bodySmall: TypographyService().bodySmall.copyWith(color: DSColors.darkTextPrimary),
+              AppFonts.headlineMedium.copyWith(color: DSColors.darkTextPrimary),
+          headlineSmall: AppFonts.headlineSmall.copyWith(color: DSColors.darkTextPrimary),
+          titleLarge: AppFonts.titleLarge.copyWith(color: DSColors.darkTextPrimary),
+          titleMedium: AppFonts.titleMedium.copyWith(color: DSColors.darkTextPrimary),
+          titleSmall: AppFonts.titleSmall.copyWith(color: DSColors.darkTextPrimary),
+          labelLarge: AppFonts.labelLarge.copyWith(color: DSColors.darkTextPrimary),
+          labelMedium: AppFonts.labelMedium.copyWith(color: DSColors.darkTextPrimary),
+          labelSmall: AppFonts.labelSmall.copyWith(color: DSColors.darkTextPrimary),
+          bodyLarge: AppFonts.bodyLarge.copyWith(color: DSColors.darkTextPrimary),
+          bodyMedium: AppFonts.bodyMedium.copyWith(color: DSColors.darkTextPrimary),
+          bodySmall: AppFonts.bodySmall.copyWith(color: DSColors.darkTextPrimary),
         ),
       );
 
@@ -143,7 +142,7 @@ class DarkTheme {
 
   // Tooltip Theme
   static final _tooltipTheme = TooltipThemeData(
-    textStyle: TypographyService().bodyMedium.copyWith(color: DSColors.darkTextInverse),
+    textStyle: AppFonts.bodyMedium.copyWith(color: DSColors.darkTextInverse),
     decoration: BoxDecoration(
       color: DSColors.darkOverlay,
       borderRadius: BorderRadius.circular(AppSize.radiusMD8),

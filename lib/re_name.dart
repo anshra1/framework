@@ -13,7 +13,7 @@ class AppConfig {
 
   static const String appName = 'Library App';
   static const Locale defaultLocale = Locale('en', 'US');
- // static const Size designSize = Size(375, 812);
+  static const Size designSize = Size(375, 812);
   static const double minTextScale = 0.8;
   static const double maxTextScale = 1.2;
 }
@@ -29,7 +29,7 @@ class RootApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => BottomBarVisibilityProvider()),
       ],
       child: ScreenUtilInit(
-       // designSize: AppConfig.designSize,
+        designSize: AppConfig.designSize,
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) => const AppContainer(),
@@ -55,7 +55,10 @@ class AppContainer extends StatelessWidget {
           theme: themeProvider.useSeedColors ? SeedTheme.lightTheme : LightTheme.theme,
           darkTheme: themeProvider.useSeedColors ? SeedTheme.darkTheme : DarkTheme.theme,
           themeMode: themeProvider.currentMode,
+          
           routerConfig: AppRouter.router,
+          
+          
           builder: (context, child) => AppScaffold(child: child),
         ),
       ),
